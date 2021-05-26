@@ -1,33 +1,66 @@
-<h1>
-  Password Generator
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+      <h1>
+        Password Generator
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+              <i>#</i>
+          </div>
+          <input (input)="onChangeLength($event.target.value)" placeholder="Password Length"/>
+        </div>
+      </div>
 
-<div>
-  <label>Enter Length</label>
-  <input (input)="onChangeLength($event.target.value)"/>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input (change)="onChangeUseLetters()" type="checkbox">
+          </div>
+          <input disabled type="text" class="form-control" placeholder="Use Letters">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input (change)="onChangeUseNumbers()" type="checkbox">
+          </div>
+          <input disabled type="text" class="form-control" placeholder="Use Numbers">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input (change)="onChangeUseSymbols()" type="checkbox">
+
+          </div>
+          <input disabled type="text" class="form-control" placeholder="Use Symbols">
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-outline-success" [disabled]="!(length && (includeLetters || includeNumbers || includeSymbols))" (click)="onSubmit()">Generate Password!</button>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-key"></i>
+          </div>
+          <input disabled [value]="password"/>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>
-  <label>User Letters</label>
-  <input (change)="onChangeUseLetters()" type="checkbox">
-</div>
 
-<div>
-  <label>User Numbers</label>
-  <input (change)="onChangeUseNumbers()" type="checkbox">
-</div>
 
-<div>
-  <label>User Symbols</label>
-  <input (change)="onChangeUseSymbols()" type="checkbox">
-</div>
-
-<div>
-  <button [disabled]="!(length && (includeLetters || includeNumbers || includeSymbols))" (click)="onSubmit()">Generate Password!</button>
-</div>
-
-<div>
-  <label>Password</label>
-  <input style="border: none;" [value]="password"/>
-</div>
 
