@@ -1,66 +1,94 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2 text-center">
-      <h1>
-        Password Generator
-      </h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-              <i>#</i>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <h1>Password Generator</h1>
+
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i>#</i>
+              </div>
+              <input
+                (input)="onChangeLength($event.target.value)"
+                placeholder="Password Length"
+              />
+            </div>
           </div>
-          <input (input)="onChangeLength($event.target.value)" placeholder="Password Length"/>
         </div>
-      </div>
-
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input (change)="onChangeUseLetters()" type="checkbox">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input (change)="onChangeUseLetters()" type="checkbox" />
+              </div>
+              <input
+                disabled
+                type="text"
+                class="form-control"
+                placeholder="Use Letters"
+              />
+            </div>
           </div>
-          <input disabled type="text" class="form-control" placeholder="Use Letters">
         </div>
-      </div>
-
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input (change)="onChangeUseNumbers()" type="checkbox">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input (change)="onChangeUseNumbers()" type="checkbox" />
+              </div>
+              <input
+                disabled
+                type="text"
+                class="form-control"
+                placeholder="Use Numbers"
+              />
+            </div>
           </div>
-          <input disabled type="text" class="form-control" placeholder="Use Numbers">
         </div>
-      </div>
-
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input (change)="onChangeUseSymbols()" type="checkbox">
-
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input (change)="onChangeUseSymbols()" type="checkbox" />
+              </div>
+              <input
+                disabled
+                type="text"
+                class="form-control"
+                placeholder="Use Symbols"
+              />
+            </div>
           </div>
-          <input disabled type="text" class="form-control" placeholder="Use Symbols">
         </div>
-      </div>
 
-      <div>
-        <button class="btn btn-outline-success" [disabled]="!(length && (includeLetters || includeNumbers || includeSymbols))" (click)="onSubmit()">Generate Password!</button>
-      </div>
-
-      <div class="input-group">
+        <div class="form-group">
+          <div>
+            <button
+              type="submit"
+              class="btn btn-outline-success"
+              [disabled]="
+                !(
+                  length &&
+                  (includeLetters || includeNumbers || includeSymbols)
+                )
+              "
+              (click)="onSubmit()"
+            >
+              Generate Password!
+            </button>
+          </div>
+        </div>
+      </form>
+      <div *ngIf="password" class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
             <i class="fa fa-key"></i>
           </div>
-          <input disabled [value]="password"/>
+          <input disabled [value]="password" />
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
