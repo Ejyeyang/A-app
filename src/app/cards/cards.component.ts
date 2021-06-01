@@ -10,7 +10,7 @@ import { Post } from '../_models/post';
 })
 export class CardsComponent implements OnInit {
 
-  posts$: Observable<Post[]> = [
+  posts: Post[] = [
     {
       title: 'Neat Tree',
       imageUrl: 'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJlZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
