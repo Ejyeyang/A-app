@@ -7,6 +7,7 @@ import { CardsComponent } from './cards/cards.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { CardComponent } from './cards/card/card.component';
+import { TypingGameComponent } from './typing-game/typing-game.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CardComponent } from './cards/card/card.component';
     CardsComponent,
     NavComponent,
     HomeComponent,
-    CardComponent
+    CardComponent,
+    TypingGameComponent
   ],
   imports: [
     BrowserModule,
